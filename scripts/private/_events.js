@@ -1,5 +1,5 @@
 const hre = require("hardhat");
-const { areAddressesEqual, getConfigPath } = require("./_helpers.js");
+const { areAddressesEqual, getConfigPath } = require("./_helpers-c3.js");
 const { getDispatcher, getUcHandlerAddress } = require("./_vibc-helpers.js");
 
 const explorerOpUrl = "https://optimism-sepolia.blockscout.com/";

@@ -1,0 +1,20 @@
+{
+  "proofsEnabled": false,
+  "deploy": {
+    "optimism": "Answer"
+  },
+  "isUniversal": true,
+  "sendUniversalPacket": {
+    "optimism": {
+      "portAddr": "0x2bD1bd77C4722EF4Ef0d584803c453816399e0ad",
+      "channelId": "channel-10",
+      "timeout": 36000
+    },
+    "base": {
+      "portAddr": "0x528f7971cE3FF4198c3e6314AA223C83C7755bf7",
+      "channelId": "channel-y",
+      "timeout": 36000
+    }
+  },
+  "backup": {}
+}

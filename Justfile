@@ -36,6 +36,10 @@ deploy SOURCE DESTINATION:
         echo "Deploying contracts with Hardhat..."
         node scripts/private/_deploy-config.js {{SOURCE}} {{DESTINATION}}
 
+deploy_c3 SOURCE:
+        echo "Deploying contracts with Hardhat..."
+        node scripts/private/_deploy-config-c3.js {{SOURCE}}
+
 # Run the sanity check script to verify that configuration (.env) files match with deployed contracts' stored values
 # Usage: just sanity-check
 sanity-check:
@@ -62,6 +66,10 @@ send-packet SOURCE:
     echo "Sending a packet with the values from the config..."
     node scripts/private/_send-packet-config.js {{SOURCE}}
 
+send-packet-c3 SOURCE:
+    echo "Sending a TEST packet with the values from the config..."
+    node scripts/private/_send-packet-config-c3.js {{SOURCE}}
+
 # Switch between the sim client and the client with proofs
 # Usage: just switch-client
 switch-client:
@@ -80,6 +88,13 @@ do-it:
     just create-channel
     just send-packet optimism
     echo "You've done it!"
+
+c3:
+    echo "Deploy a contract to optimism"
+    just set-contracts optimism Answer true
+    just deploy_c3 optimism
+    just send-packet-c3 optimism
+    echo "check the explorer to view whether the message comes!"
 
 # Clean up the environment by removing the artifacts and cache folders and running the forge clean command
 # Usage: just clean
